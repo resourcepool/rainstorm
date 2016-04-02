@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Retaliation cluster server.",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/excilys/rainstorm.git"
+  },
+  "author": "Zacaria Louis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/excilys/rainstorm/issues"
+  },
+  "homepage": "https://github.com/excilys/rainstorm#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.12",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "request": "^2.72.0",
+    "validator": "^5.2.0"
+  }
+}
