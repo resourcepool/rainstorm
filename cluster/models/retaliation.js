@@ -1,23 +1,21 @@
-// Load required packages
-var mongoose = require('mongoose');
-var Developer = require('./developer');
+export default class Retaliation {
 
-// Define our retaliation schema
-var RetaliationSchema   = mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  room: {
-    type: String,
-    required: true
-  },
-  developers: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Developer'
-  }]
-}, { versionKey: '_retaliation_version' });
+    constructor(retaliationId, users, launchers) {
+        this.retaliationId = retaliationId;
+        this.users = users || [];
+        this.launchers = launchers || [];
+    }
 
-// Export the Mongoose model
-module.exports = mongoose.model('Retaliation', RetaliationSchema);
+    getUsers() {
+        return this.users;
+    }
+
+    getRetaliationId() {
+        return this.retaliationId;
+    }
+
+    getLaunchers() {
+        return this.launchers;
+    }
+
+}

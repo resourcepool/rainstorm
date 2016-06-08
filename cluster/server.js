@@ -1,21 +1,19 @@
-// Load required packages
-var express = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-var passport = require('passport');
-var authController = require('./controllers/auth');
-var retaliationController = require('./controllers/retaliation');
-var userController = require('./controllers/user');
-var actionController = require('./controllers/action');
+import express from 'express';
+import expressValidation from 'express-validation';
+import bodyParser from 'body-parser';
+import passport from 'passport';
+import httpStatus from 'http-status';
+import cors from 'cors';
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/retaliation-mongo');
+import config from './config';
+import routes from './routes';
+import APIError from './helpers/APIError';
 
 // Create our Express application
-var app = express();
+const app = express();
 
-// Defining port
-var port = parseInt(process.env.PORT, 10) || 3000;
+// Setup config (default: development)
+app.set('config', config());
 
 // Use the body-parser package in our application
 app.use(bodyParser.json());
@@ -24,37 +22,40 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 
 //Enable CORS
-app.use(require('./middlewares/cors'));
-
-// Create our Express router
-var router = express.Router();
-
-// Create endpoint handlers for /retaliations
-router.route('/retaliations')
-    .get(authController.isAuthenticated, retaliationController.getRetaliations)
-    .post(authController.isAuthenticated, authController.isRole('admin'), retaliationController.postRetaliations);
-
-//Create endpoint handlers for /retaliations/:retaliation_id
-router.route('/retaliations/:retaliation_id')
-    .get(authController.isAuthenticated, retaliationController.getRetaliation)
-    .put(authController.isAuthenticated, authController.isRole('admin'), retaliationController.putRetaliation)
-    .delete(authController.isAuthenticated, authController.isRole('admin'), retaliationController.deleteRetaliation);
-
-// Create endpoint handlers for /users
-router.route('/users')
-    .get(authController.isAuthenticated, authController.isRole('admin'), userController.getUsers)
-    .post(authController.isAuthenticated, authController.isRole('admin'), userController.postUsers);
-
-// Create endpoint handlers for /actions
-router.route('/actions/shoot')
-    .post(authController.isAuthenticated, authController.isRole('admin'), actionController.shootPos)
-router.route('/actions/shoot/:id')
-    .post(authController.isAuthenticated, authController.isRole('admin'), actionController.shootDev)
+app.use(cors());
 
 // Register all our routes with /api
-app.use('/api', router);
+app.use('/api', routes);
+
+// If error is not an instanceOf APIError.js, convert it.
+app.use((err, req, res, next) => {
+    if (err instanceof expressValidation.ValidationError) {
+        // validation error contains errors which is an array of error each containing message[]
+        const unifiedErrorMessage = err.errors.map(error => error.messages.join('. ')).join(' and ');
+        const error = new APIError(unifiedErrorMessage, err.status);
+        return next(error);
+    } else if (!(err instanceof APIError)) {
+        const apiError = new APIError(err.message, err.status);
+        return next(apiError);
+    }
+    return next(err);
+});
+
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+    const err = new APIError('API not found', httpStatus.NOT_FOUND);
+    next(err);
+});
+
+// Error handler
+app.use((err, req, res, next) =>
+    res.status(err.status).json({
+        message: err.message,
+        stack: err.stack
+    })
+);
 
 // Start the server
-app.listen(port, function () {
-    console.info("Retaliation server is running on port: " + port);
+app.listen(app.get('config').port, function () {
+    console.info("Retaliation server is running on port: " + app.get('config').port);
 });
