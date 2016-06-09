@@ -7,15 +7,15 @@
  - Directory: `./docker/mongo`
  - Setup image and run container: `./build-up.sh`
 
-## Driver (python/flask)
+## Driver
 
-- Requirements: `python 2.7`
+- Requirements: `nodejs gulp`
 - Directory: `./driver`
-- Run setup: `./setup.sh`
-- Run server: `./rest-retaliation.py`
+- Run setup: `npm install`
+- Run server: `gulp`
 
 ### USB permissions
-
+- Make sure us have those libs `sudo apt-get install libudev-dev libusb-1.0-0-dev`
 - Create `sudo vi /etc/udev/rules.d/99-garmin.rules`
 - Add `SUBSYSTEM=="usb", ATTR{idVendor}=="2123", ATTR{idProduct}=="1010", MODE="666"`
 - Unplug the missile launcher
