@@ -7,8 +7,20 @@ function getLaunchers() {
     return collection.data;
 }
 
-function postLauncher(launcher) {
-    collection.insert(launcher);
+function getLauncher(id) {
+    return collection.find({'id': {'$eq': id}});
 }
 
-export default {getLaunchers, postLauncher};
+function postLauncher(launcher) {
+    return collection.insert(launcher);
+}
+
+function updateLauncher(launcher) {
+    return collection.update(launcher);
+}
+
+function removeLauncher(id) {
+    return collection.removeWhere({'id': {'$eq': id}});
+}
+
+export default {getLaunchers, getLauncher, postLauncher, updateLauncher, removeLauncher};

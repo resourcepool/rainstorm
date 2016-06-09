@@ -1,23 +1,35 @@
 import express from 'express';
 import userRoutes from './user';
 import launcherRoutes from './launcher';
-
+import retaliationRoutes from './retaliation';
+import auth from '../controllers/auth';
 const router = express.Router();
 
 /**
- * GET /health-check - Check service health
+ * Checking if cluster is running up.
  */
 router.get('/health-check', (req, res) =>
     res.json({message: 'OK'})
 );
 
-// mount user routes at /users
+/**
+ * Authentication route.
+ */
+router.route('/authenticate').post(auth.authentication);
+
+/**
+ * Users route
+ */
 router.use('/users', userRoutes);
 
-// mount launcher routes at /launchers
-// router.use('/launchers', launcherRoutes);
+/**
+ * Launchers route
+ */
+router.use('/launchers', launcherRoutes);
 
-// mount retaliation routes at /retaliations
-// router.use('/retaliations', retaliationRoutes);
+/**
+ * Retaliations route
+ */
+router.use('/retaliations', retaliationRoutes);
 
 export default router;

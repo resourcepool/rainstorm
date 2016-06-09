@@ -1,7 +1,7 @@
-let development = {
+var development = {
     apiKeyClient: 'clientkey',
     apiKeyRetaliation: 'retaliationkey',
-    apiKey: 'clusterkey',
+    apiKeyPrivate: 'privatekey',
     port: 3000
 };
 

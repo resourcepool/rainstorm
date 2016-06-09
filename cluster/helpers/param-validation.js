@@ -5,5 +5,10 @@ export default {
         body: {
             name: Joi.string().required()
         }
+    },
+    launcher: {
+        body: {
+            id: Joi.string().required()
+        }
     }
 };

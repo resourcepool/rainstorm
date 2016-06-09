@@ -1,12 +1,18 @@
 import express from 'express';
+import validate from 'express-validation';
+import paramValidation from '../helpers/param-validation';
 import launcherController from '../controllers/launcher';
+import auth from '../controllers/auth';
 
 const router = express.Router();
 
 router.route('/')
-    /** GET /api/launchers - Get list of launchers */
     .get(launcherController.getLaunchers)
-    /** POST /api/launchers - Create new launcher */
     .post(launcherController.postLauncher);
+
+router.route('/:id')
+    .get(auth.isValidToken, launcherController.getLauncher)
+    .put(auth.isValidToken, validate(paramValidation.launcher), launcherController.updateLauncher)
+    .delete(auth.isValidToken, launcherController.removeLauncher);
 
 export default router;

@@ -1,7 +1,6 @@
 import express from 'express';
 import expressValidation from 'express-validation';
 import bodyParser from 'body-parser';
-import passport from 'passport';
 import httpStatus from 'http-status';
 import cors from 'cors';
 
@@ -17,9 +16,6 @@ app.set('config', config());
 
 // Use the body-parser package in our application
 app.use(bodyParser.json());
-
-// Use the passport package in our application
-app.use(passport.initialize());
 
 //Enable CORS
 app.use(cors());

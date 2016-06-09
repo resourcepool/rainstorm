@@ -1,22 +1,31 @@
-import request from 'request';
-import lokijs from 'lokijs';
+import launcherDAO from '../persistence/launcher';
+import Launcher from '../models/launcher';
 
-/**
- * Get all launchers
- * @param req
- * @param res
- */
 function getLaunchers(req, res) {
-    request({
-        url: "https://public.opendatasoft.com/api/datasets/1.0/search/?q=villettedanthon&rows=1",
-        method: "GET"
-    }, function (error, response) {
-        res.json({message: 'This is the driver response.', data: JSON.parse(response.body)});
-    });
+    res.json(launcherDAO.getLaunchers());
+}
+
+function getLauncher(req, res) {
+    res.json(launcherDAO.getLauncher(req.params.id));
 }
 
 function postLauncher(req, res) {
-    res.json({message: 'Not implemented.'});
+    let launcher = new Launcher(req.body.name);
+    let create = launcherDAO.postLauncher(launcher);
+    res.json({message: 'Launcher added.', data: create});
 }
 
-export default {getLaunchers, postLauncher};
+function updateLauncher(req, res) {
+    let current = launcherDAO.getLauncher(req.params.name);
+    current.name = req.body.name;
+    current.positions = req.body.positions;
+    let update = launcherDAO.updateLauncher(current);
+    res.json({message: 'Launcher updated.', data: update});
+}
+
+function removeLauncher(req, res) {
+    let remove = launcherDAO.removeLauncher(req.params.name);
+    res.json({message: 'Launcher removed.', data: remove});
+}
+
+export default {getLaunchers, getLauncher, postLauncher, updateLauncher, removeLauncher};

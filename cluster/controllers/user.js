@@ -28,4 +28,4 @@ function removeUser(req, res) {
     res.json({message: 'User removed.', data: remove});
 }
 
-export default {getUsers, getUser, postUser, updateUser};
+export default {getUsers, getUser, postUser, updateUser, removeUser};
