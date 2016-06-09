@@ -4,15 +4,27 @@ const driverManager = require('./driver/driverManager');
 
 const drivers = require('require-dir')('./driver/impl');
 let devices = driverManager.load(usb.getDeviceList(), drivers);
+const EventEmitter = require("events").EventEmitter;
+const driver = new EventEmitter();
 
-function refresh (device) {
+/**
+ * Reloads plugged in devices with appropriate driver
+ */
+function refresh() {
   devices = driverManager.load(usb.getDeviceList(), drivers);
-  console.log(devices);
 }
 
-usb.on('attach', refresh);
-usb.on('detach', refresh);
+usb.on('attach', () => {
+  refresh();
+  driver.emit('attach', devices);
+});
+usb.on('detach', () => {
+  refresh();
+  driver.emit('detach', devices);
+});
 
-module.exports = () => {
+
+driver.getDevices = () => {
   return devices;
 };
+module.exports = driver;
