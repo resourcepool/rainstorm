@@ -53,5 +53,5 @@ app.use((err, req, res, next) =>
 
 // Start the server
 app.listen(app.get('config').port, function () {
-    console.info("Retaliation server is running on port: " + app.get('config').port);
+    console.info("Cluster server is running on port: " + app.get('config').port);
 });

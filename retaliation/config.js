@@ -1,8 +1,9 @@
 var development = {
     apiKeyClient: 'apikeyclient',
     apiKeyRetaliation: 'apikeyretaliation',
-    apiKeyPrivate: 'apikeyprivate',
-    port: 3000
+    ipCluster: '192.168.10.52',
+    portCluster: 3000,
+    port: 3001
 };
 
 function config() {

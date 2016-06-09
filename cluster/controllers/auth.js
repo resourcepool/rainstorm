@@ -53,4 +53,19 @@ function isValidToken(req, res, next) {
     }
 }
 
+/**
+ * Validation of the retaliation api key.
+ * @param req
+ * @param res
+ * @param next
+ * @returns {*}
+ */
+function isValidRetaliationApiKey(req, res, next) {
+    if (req.headers['api-key'] === config().apiKeyRetaliation) {
+        next();
+    } else {
+        return res.status(403).json({success: false, message: 'Invalid apiKey.'});
+    }
+}
+
 export default {authentication, isValidToken}
