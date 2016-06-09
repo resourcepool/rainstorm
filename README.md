@@ -1,4 +1,4 @@
-# Rainstorm ![logo][logo]
+# [`DEPRECATED`] Rainstorm ![logo][logo]
 [logo]: ./rainstorm-logo.png "logo title"
 
 ## Database (mongo/docker)
