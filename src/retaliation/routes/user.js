@@ -1,8 +1,11 @@
+'use strict';
 import express from 'express';
 import validate from 'express-validation';
 import paramValidation from '../../core/helpers/param-validation';
-import userController from '../../core/controllers/user';
 import auth from '../../core/controllers/auth';
+import userDAO from '../persistence/user';
+
+const userController = require('../../core/controllers/user')(userDAO);
 
 const router = express.Router();
 

@@ -1,34 +1,34 @@
+'use strict';
+
 import User from '../models/user';
 
-export default class UserController {
+module.exports = (dao) => {
 
-    constructor(dao) {
-        this.dao = dao;
-    }
+    return {
+      getUsers: (req, res) => {
+        res.json(dao.getUsers());
+      },
 
-    getUsers(req, res) {
-        res.json(this.dao.getUsers());
-    }
+      getUser: (req, res) => {
+        res.json(dao.getUser(req.params.name));
+      },
 
-    getUser(req, res) {
-        res.json(this.dao.getUser(req.params.name))
-    }
-
-    postUser(req, res) {
+      postUser: (req, res) => {
         let user = new User(req.body.name, req.body.positions);
-        this.dao.postUser(user);
+        dao.postUser(user);
         res.json({message: 'User added.', data: user});
-    }
+      },
 
-    updateUser(req, res) {
+      updateUser: (req, res) => {
         let user = new User(req.body.name, req.body.positions);
-        this.dao.updateUser(user, req.params.name);
+        dao.updateUser(user, req.params.name);
         res.json({message: 'User updated.', data: user});
-    }
+      },
 
-    removeUser(req, res) {
-        this.dao.removeUser(req.params.name);
+      removeUser: (req, res) => {
+        dao.removeUser(req.params.name);
         res.json({message: 'User removed.', data: req.params.name});
-    }
+      }
+    };
 
 };

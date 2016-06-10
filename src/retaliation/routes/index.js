@@ -1,3 +1,4 @@
+'use strict';
 import express from 'express';
 import launcherRoutes from './launcher';
 import userRoutes from './user';

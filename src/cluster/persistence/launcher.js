@@ -3,7 +3,7 @@ import LauncherDispatcher from '../dispatcher/launcher';
 
 const db = new Lokijs('launcher.json');
 const collection = db.addCollection('launchers');
-const LauncherDispatcher = new LauncherDispatcher;
+const launcherDispatcher = new LauncherDispatcher;
 
 export default class LauncherDao {
 
@@ -16,7 +16,7 @@ export default class LauncherDao {
     }
 
     updateLauncher(launcher, name, cb) {
-        LauncherDispatcher.updateLauncher(launcher, name, function (err, res) {
+        launcherDispatcher.updateLauncher(launcher, name, function (err, res) {
             if(err) {
                 throw err;
             }

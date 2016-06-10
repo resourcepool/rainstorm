@@ -1,13 +1,15 @@
+'use strict';
 import express from 'express';
 import validate from 'express-validation';
 import paramValidation from '../../core/helpers/param-validation';
-import launcherController from '../../core/controllers/launcher';
+import launcherDAO from '../persistence/launcher';
+
+const launcherController = require('../../core/controllers/launcher')(launcherDAO);
 
 const router = express.Router();
 
 router.route('/')
-    .get(launcherController.getLaunchers)
-    .post(launcherController.postLauncher);
+    .get(launcherController.getLaunchers);
 
 router.route('/:id')
     .get(launcherController.getLauncher)

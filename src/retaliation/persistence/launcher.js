@@ -1,9 +1,25 @@
-import Launcher from '../models/launcher';
+'use strict';
+const fs = require('fs');
+const pathExists = require('path-exists');
+import Launcher from '../../core/models/launcher';
 import fileAsync from 'lowdb/lib/file-async';
 import low from 'lowdb';
 import faker from 'faker';
 let launcherDir = './db/launchers.json';
 let collection = 'launchers';
+
+/**
+ * [ WIP ] Create the db if it doesn't exist
+ */
+pathExists(launcherDir).then(exists => {
+  console.log(exists);
+};
+// FIXME : Create the db if it doesn't exist
+// if(!low.has(launcherDir).value()){
+//   // I'm doing this ugly sync because it is executed only once
+//   fs.writeFileSync(launcherDir, '');
+// }
+
 let db = low(launcherDir, {storage: fileAsync});
 
 function getLaunchers() {
