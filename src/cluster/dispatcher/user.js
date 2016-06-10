@@ -1,5 +1,5 @@
 import request from 'request';
-import config from '../../config'
+import config from '../config'
 const url = 'api/users';
 
 export default class UserDispatcher {

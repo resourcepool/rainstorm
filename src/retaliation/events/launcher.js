@@ -1,5 +1,5 @@
 import launcherDAO from '../persistence/launcher';
-import driver from '../../driver/src/driver';
+import driver from '../../driver/driver';
 
 console.log('events');
 

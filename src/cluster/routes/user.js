@@ -1,8 +1,8 @@
 import express from 'express';
 import validate from 'express-validation';
-import paramValidation from '../../../core/src/helpers/param-validation';
-import userController from '../../../core/src/controllers/user';
-import auth from '../../../core/src/controllers/auth';
+import paramValidation from '../../core/helpers/param-validation';
+import userController from '../../core/controllers/user';
+import auth from '../../core/controllers/auth';
 
 const router = express.Router();
 

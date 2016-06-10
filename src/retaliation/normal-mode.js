@@ -6,8 +6,8 @@ import cors from 'cors';
 
 import config from './config';
 import routes from './routes';
-import APIError from './helpers/APIError';
-import driver from '../driver/src/driver';
+import APIError from '../core/helpers/api-error';
+import driver from '../driver/driver';
 
 function run() {
 
