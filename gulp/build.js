@@ -1,17 +1,26 @@
 'use strict';
 var gulp = require('gulp');
 
-var plugins = require('gulp-load-plugins')({
-  pattern: ['gulp-*', 'uglify-save-license']
+var $ = require('gulp-load-plugins')({
+  pattern: ['gulp-*', 'uglify-save-license', 'del']
+});
+
+gulp.task('clean', function () {
+  return $.del(['dist']);
 });
 
 gulp.task('scripts', function () {
-  return gulp.src(['src/**/*.js', '!**/node_modules/**'])
-    .pipe(plugins.jshint())
-    .pipe(plugins.jshint.reporter('jshint-stylish'))
-    .pipe(plugins.size());
+  return gulp.src(['src/**/*.js', '!src/client/**/*.js', '!**/node_modules/**'])
+    .pipe($.jshint())
+    .pipe($.jshint.reporter('jshint-stylish'))
+    .pipe($.size());
 });
 
-gulp.task('build', ['watch'], function() {
-  gulp.start(['scripts']);
+gulp.task('babel', ['scripts', 'clean'], function () {
+  return gulp.src('src/**/*.js')
+    .pipe($.babel({
+      presets: ['es2015']
+    }))
+    .on('error', $.util.log)
+    .pipe(gulp.dest('dist'));
 });
