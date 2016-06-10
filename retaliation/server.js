@@ -2,6 +2,8 @@ import request from 'request';
 import config from './config';
 import normalMode from './normal-mode';
 import slaveMode from './slave-mode';
+import events from './events/launcher';
+// require('./events/launcher');
 
 /**
  * Checking which mode api has to setup

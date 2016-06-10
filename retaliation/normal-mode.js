@@ -7,8 +7,11 @@ import cors from 'cors';
 import config from './config';
 import routes from './routes';
 import APIError from './helpers/APIError';
+import driver from '../driver/src/driver';
 
 function run() {
+
+    console.info('current devices', driver.getDevices());
 
     const app = express();
     app.set('config', config());

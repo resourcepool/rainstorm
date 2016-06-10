@@ -1,3 +1,22 @@
 {
-  "launchers": []
+  "launchers": [
+    {
+      "name": "Clyde"
+    },
+    {
+      "name": "Niko"
+    },
+    {
+      "name": "Joaquin"
+    },
+    {
+      "name": "Oscar"
+    },
+    {
+      "name": "Augustus"
+    },
+    {
+      "name": "Elenor"
+    }
+  ]
 }

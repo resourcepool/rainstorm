@@ -14,13 +14,13 @@ function refresh() {
   devices = driverManager.load(usb.getDeviceList(), drivers);
 }
 
-usb.on('attach', () => {
+usb.on('attach', (device) => {
   refresh();
-  driver.emit('attach', devices);
+  driver.emit('attach', device);
 });
-usb.on('detach', () => {
+usb.on('detach', (device) => {
   refresh();
-  driver.emit('detach', devices);
+  driver.emit('detach', device);
 });
 
 

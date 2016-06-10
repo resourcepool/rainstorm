@@ -7,20 +7,36 @@ export default class Launcher {
         this.usb = usb;
     }
 
-    getName() {
+    get name() {
         return this.name;
     }
 
-    getRetaliationId() {
+    set name(name) {
+        this.name = name;
+    }
+
+    get retaliationId() {
         return this.retaliationId;
     }
 
-    getPositions() {
+    set retaliationId(retaliationId) {
+        this.retaliationId = retaliationId;
+    }
+
+    get positions() {
         return this.positions;
     }
 
-    getUsb() {
+    set positions(positions) {
+        this.positions = positions;
+    }
+
+    get usb() {
         return this.usb;
+    }
+
+    set usb(usb){
+        this.usb = usb;
     }
 
 }
