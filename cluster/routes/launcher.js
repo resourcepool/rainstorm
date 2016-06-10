@@ -1,14 +1,14 @@
 import express from 'express';
 import validate from 'express-validation';
-import paramValidation from '../helpers/param-validation';
-import launcherController from '../controllers/launcher';
-import auth from '../controllers/auth';
+import paramValidation from '../../core/helpers/param-validation';
+import launcherController from '../../core/controllers/launcher';
+import auth from '../../core/controllers/auth';
 
 const router = express.Router();
 
 router.route('/')
-    .get(launcherController.getLaunchers)
-    .post(launcherController.postLauncher);
+    .get(auth.isValidToken, launcherController.getLaunchers)
+    .post(auth.isValidToken, validate(paramValidation.launcher), launcherController.postLauncher);
 
 router.route('/:id')
     .get(auth.isValidToken, launcherController.getLauncher)

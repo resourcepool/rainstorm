@@ -1,5 +1,5 @@
-import fileAsync from 'lowdb/lib/file-async';
-import low from 'lowdb';
+import fileAsync from "lowdb/lib/file-async";
+import low from "lowdb";
 let userDir = './db/users.json';
 let collection = 'users';
 let db = low(userDir, {storage: fileAsync});

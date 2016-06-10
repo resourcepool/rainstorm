@@ -1,8 +1,8 @@
 import express from 'express';
 import userRoutes from './user';
 import launcherRoutes from './launcher';
-import retaliationRoutes from './retaliation';
-import auth from '../controllers/auth';
+import registerRoutes from './register';
+import auth from '../../core/controllers/auth';
 const router = express.Router();
 
 /**
@@ -18,6 +18,11 @@ router.get('/health-check', (req, res) =>
 router.route('/authenticate').post(auth.authentication);
 
 /**
+ * Registration route when slave mode active on retaliation client api.
+ */
+router.use('/register', registerRoutes);
+
+/**
  * Users route
  */
 router.use('/users', userRoutes);
@@ -26,10 +31,5 @@ router.use('/users', userRoutes);
  * Launchers route
  */
 router.use('/launchers', launcherRoutes);
-
-/**
- * Retaliations route
- */
-router.use('/retaliations', retaliationRoutes);
 
 export default router;

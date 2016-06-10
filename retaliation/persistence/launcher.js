@@ -17,6 +17,11 @@ function postLauncher(device) {
   return db.set(collection, getLaunchers()).value();
 }
 
+function postLauncher(launcher) {
+
+    // db.get(collection).filter({name: })
+}
+
 function updateLauncher(launcher) {
   db.get(collection).filter({name: launcher.getName()}).assign(launcher).value();
   return db.get(collection).filter({name: launcher.getName()});

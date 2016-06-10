@@ -6,7 +6,7 @@ import cors from 'cors';
 
 import config from './config';
 import routes from './routes';
-import APIError from './helpers/APIError';
+import APIError from '../core/helpers/api-error';
 
 // Create our Express application
 const app = express();

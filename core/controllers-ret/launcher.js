@@ -1,5 +1,6 @@
 import launcherDAO from '../persistence/launcher';
 import Launcher from '../models/launcher';
+import ip from 'ip';
 
 function getLaunchers(req, res) {
     res.json(launcherDAO.getLaunchers());
@@ -10,9 +11,10 @@ function getLauncher(req, res) {
 }
 
 function postLauncher(req, res) {
-    let launcher = new Launcher(req.body.name);
-    let create = launcherDAO.postLauncher(launcher);
-    res.json({message: 'Launcher added.', data: create});
+    let launcher = new Launcher(req.body.name, ip.address(), req.body.positions);
+    let created = launcherDAO.postLauncher(launcher);
+    console.log(created);
+    res.json({message: 'Launcher added.', data: created});
 }
 
 function updateLauncher(req, res) {

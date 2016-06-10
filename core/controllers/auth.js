@@ -68,4 +68,4 @@ function isValidRetaliationApiKey(req, res, next) {
     }
 }
 
-export default {authentication, isValidToken}
+export default {authentication, isValidToken, isValidRetaliationApiKey}
