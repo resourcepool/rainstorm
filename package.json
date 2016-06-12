@@ -12,7 +12,7 @@
     "url": "git+ssh://git@github.com/excilys/rainstorm.git"
   },
   "author": "Zacaria Louis",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/excilys/rainstorm/issues"
   },
