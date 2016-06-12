@@ -1,11 +1,7 @@
 # [`DEPRECATED`] Rainstorm ![logo][logo]
 [logo]: ./rainstorm-logo.png "logo title"
 
-## Database (mongo/docker)
-
- - Requirements: `docker-compose`
- - Directory: `./docker/mongo`
- - Setup image and run container: `./build-up.sh`
+Check [Wiki](https://github.com/excilys/rainstorm/wiki) for more info
 
 ## Driver
 
@@ -24,7 +20,7 @@
 
 ### Authentication
 
-The api required a hard coded basic authentication:
+The api requires a hard coded basic authentication:
 - username: `yo`
 - password: `yo`
 
@@ -34,7 +30,7 @@ The api required a hard coded basic authentication:
 - [POST] `/api/shoot`: (x, y required) turn to the given position, shoot and come back.
 
 
-If the position is not accessible, a `Bad request` error message will be return.
+If the position is not accessible, a `Bad request` error message will be returned.
 After each movement the missile launcher gets back to its initial position.
 
 ## Cluster (node)
@@ -55,7 +51,9 @@ After each movement the missile launcher gets back to its initial position.
  - [GET/POST] `/api/users`: manage users.
  - [GET/POST/PUT/DELETE] `/api/retaliations`: manage retaliations.
 
-## Client (electron)
+## Client [`DEPRECATED`] (electron)
+
+It will be updated as soon as the cluster and the rainstorm layer are stable
 
  - Requirements: `node` `npm` `bower`
  - Directory: `./client`
