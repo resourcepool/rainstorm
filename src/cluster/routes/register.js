@@ -1,8 +1,9 @@
 import express from 'express';
 import registerController from '../controllers/register';
-import auth from '../../core/controllers/auth';
+import config from '../config';
 
 const router = express.Router();
+const auth = require('../../core/controllers/auth')(config);
 
 router.route('/').post(auth.isValidRetaliationApiKey, registerController.postRegister);
 

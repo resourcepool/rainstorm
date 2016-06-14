@@ -1,9 +1,10 @@
 import express from 'express';
 import validate from 'express-validation';
 import paramValidation from '../../core/helpers/param-validation';
-import auth from '../../core/controllers/auth';
+import config from '../config';
 import userDAO from '../persistence/user';
 
+const auth = require('../../core/controllers/auth')(config);
 const userController = require('../../core/controllers/user')(userDAO);
 
 const router = express.Router();
