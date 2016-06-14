@@ -1,13 +1,18 @@
-# [`DEPRECATED`] 
 # Rainstorm ![logo][logo]
 [logo]: ./rainstorm-logo.png "logo title"
 
-Check [Wiki](https://github.com/excilys/rainstorm/wiki) for more info
+Check [Wiki](https://github.com/excilys/rainstorm/wiki) and [Glossary](https://github.com/excilys/rainstorm/wiki/Glossary) for more info
+
+## General Requirements
+
+- NodeJs v6.x and build tools
+  - `curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -`
+  - `sudo apt-get install -y nodejs`
+  - `sudo apt-get install -y build-essential`
 
 ## Driver
-
-- Requirements: `nodejs gulp`
-- Directory: `./driver`
+- Global packages: `npm install -g gulp-cli`
+- Directory: `./src/driver`
 - Run setup: `npm install`
 - Run server: `gulp`
 
@@ -25,7 +30,7 @@ The api requires a hard coded basic authentication:
 - username: `yo`
 - password: `yo`
 
-### API
+### API [`DEPRECATED`]
 
 - [POST] `/api/move`: (x, y required) turn to the given position and come back.
 - [POST] `/api/shoot`: (x, y required) turn to the given position, shoot and come back.
@@ -34,10 +39,9 @@ The api requires a hard coded basic authentication:
 If the position is not accessible, a `Bad request` error message will be returned.
 After each movement the missile launcher gets back to its initial position.
 
-## Cluster (node)
+## Cluster
 
- - Requirements: `node` `npm` `nodemon`
- - Directory: `./cluster`
+ - Directory: `./src/cluster`
  - Install dependencies: `npm install`
  - Run server: `npm start` (use `nodemon`) or `node server` (use `node`)
 
