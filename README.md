@@ -1,4 +1,5 @@
-# [`DEPRECATED`] Rainstorm ![logo][logo]
+# [`DEPRECATED`] 
+# Rainstorm ![logo][logo]
 [logo]: ./rainstorm-logo.png "logo title"
 
 Check [Wiki](https://github.com/excilys/rainstorm/wiki) for more info
