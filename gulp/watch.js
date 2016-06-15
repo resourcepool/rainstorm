@@ -1,4 +1,3 @@
-'use strict';
 var gulp = require('gulp');
 
 var filesToWatch = ['src/**/*.js', 'gulp/**/*.js', 'gulpfile.js',

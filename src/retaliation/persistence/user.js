@@ -1,4 +1,3 @@
-'use strict';
 const fs = require('fs');
 import fileAsync from 'lowdb/lib/file-async';
 import low from 'lowdb';

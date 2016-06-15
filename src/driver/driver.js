@@ -1,4 +1,3 @@
-'use strict';
 const usb = require('usb');
 const driverManager = require('./driver/driverManager');
 

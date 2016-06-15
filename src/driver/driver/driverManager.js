@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   load: function(devices, drivers) {
     devices = mapDeviceToDriver(devices, drivers);

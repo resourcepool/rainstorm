@@ -1,4 +1,3 @@
-'use strict';
 const usb = require('usb');
 const co = require('co');
 const sleep = require('co-sleep');

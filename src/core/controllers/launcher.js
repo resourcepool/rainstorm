@@ -1,5 +1,3 @@
-'use strict';
-
 import Launcher from '../models/launcher';
 
 module.exports = (dao) => {
