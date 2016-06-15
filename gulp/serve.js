@@ -3,7 +3,7 @@ var spawn = require('child_process').spawn;
 var node;
 
 /**
- * description: launch the server. If there's a server already running, kill it.
+ * Launches the server. If there's a server already running, kill it.
  */
 gulp.task('serve-rainstorm', ['babel'], function() {
   if (node) node.kill();
