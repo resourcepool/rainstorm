@@ -1,4 +1,3 @@
-'use strict';
 // Classes
 const LauncherListener = require('./LauncherListener');
 // Imports

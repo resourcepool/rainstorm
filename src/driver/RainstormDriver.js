@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Vendor id
  * @type {number}
