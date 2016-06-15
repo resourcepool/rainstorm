@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import httpStatus from 'http-status';
 import cors from 'cors';
 
-import config from './config';
+import config from './conf/config';
 import routes from './routes';
 import APIError from '../core/helpers/api-error';
 import driverManager from '../driver/driverManager';

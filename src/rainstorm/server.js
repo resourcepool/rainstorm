@@ -6,7 +6,7 @@ const slaveMode = require.resolve('./slave-mode');
 /**
  * Checking which mode api has to setup
  */
-if (config.mode === 'standalone') {
+if (config.mode !== 'standalone') {
   request({
     url: config.master.scheme + '://' + config.master.host + ':' + config.master.port + '/health-check',
     method: "GET"

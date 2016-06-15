@@ -2,7 +2,7 @@
 import express from 'express';
 import validate from 'express-validation';
 import paramValidation from '../../core/helpers/param-validation';
-import config from '../config';
+import config from '../conf/config';
 import userDAO from '../persistence/user';
 
 const auth = require('../../core/controllers/auth')(config);
