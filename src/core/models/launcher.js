@@ -1,8 +1,8 @@
 export default class Launcher {
 
-    constructor(name, retaliationId, positions, deviceDescriptor) {
+    constructor(name, rainstormId, positions, deviceDescriptor) {
         this._name = name;
-        this._retaliationId = retaliationId;
+        this._rainstormId = rainstormId;
         this._positions = positions;
         this._deviceDescriptor = deviceDescriptor;
     }
@@ -15,12 +15,12 @@ export default class Launcher {
         this._name = name;
     }
 
-    get retaliationId() {
-        return this._retaliationId;
+    get rainstormId() {
+        return this._rainstormId;
     }
 
-    set retaliationId(retaliationId) {
-        this._retaliationId = retaliationId;
+    set rainstormId(rainstormId) {
+        this._rainstormId = rainstormId;
     }
 
     get positions() {

@@ -1,6 +1,6 @@
 module.exports = {
   apiKeyClient: 'apikeyclient',
-  apiKeyRetaliation: 'apikeyretaliation',
+  apiKeyRainstorm: 'apikeyrainstorm',
   mode: 'standalone', // Valid modes are standalone and slave
   port: 3001,
   master: {
@@ -8,4 +8,4 @@ module.exports = {
     scheme: 'http',
     port: 3000
   }
-}
+};

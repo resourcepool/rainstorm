@@ -54,7 +54,7 @@ After each movement the missile launcher gets back to its initial position.
  ### API
 
  - [GET/POST] `/api/users`: manage users.
- - [GET/POST/PUT/DELETE] `/api/retaliations`: manage retaliations.
+ - [GET/POST/PUT/DELETE] `/api/rainstorms`: manage rainstorms.
 
 ## Client [`DEPRECATED`] (electron)
 

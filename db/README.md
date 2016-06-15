@@ -2,4 +2,4 @@
 
 This folder holds the data for the current rainstorm
 
-Customize the json values to configure your retaliation
+Customize the json values to configure your rainstorm

@@ -1,7 +1,7 @@
 {
   "name": "rainstorm",
   "version": "1.0.0",
-  "description": "Retaliation API.",
+  "description": "Rainstorm API.",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/excilys/rainstorm.git"

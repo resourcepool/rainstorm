@@ -48,16 +48,10 @@ const RainstormDriver = class {
   get device() {
     return this._device;
   }
+  
+  static isSupported(device) {
+  }
 
-};
-
-/**
- * Static method to check if a device is supported by driver or not
- * @param device the device
- * @returns {boolean}
- */
-RainstormDriver.isSupported = function(device) {
-  return device.deviceDescriptor.idVendor === VID && device.deviceDescriptor.idProduct === PID;
 };
 
 module.exports = RainstormDriver;

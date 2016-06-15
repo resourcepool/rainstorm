@@ -3,8 +3,8 @@ var gulp = require('gulp');
 
 require('require-dir')('./gulp');
 
-gulp.task('retaliation', function() {
-  gulp.start('watch-retaliation');
+gulp.task('rainstorm', function() {
+  gulp.start('watch-rainstorm');
 });
 
 gulp.task('cluster', function() {

@@ -56,14 +56,14 @@ module.exports = config => {
     },
 
     /**
-     * Validation of the retaliation api key.
+     * Validation of the rainstorm api key.
      * @param req
      * @param res
      * @param next
      * @returns {*}
      */
-    isValidRetaliationApiKey(req, res, next) {
-      if (req.headers['api-key'] === config.apiKeyRetaliation) {
+    isValidRainstormApiKey(req, res, next) {
+      if (req.headers['api-key'] === config.apiKeyRainstorm) {
         next();
       } else {
         return res.status(403).json({success: false, message: 'Invalid apiKey.'});

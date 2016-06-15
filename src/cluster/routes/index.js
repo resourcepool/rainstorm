@@ -20,7 +20,7 @@ router.get('/health-check', (req, res) =>
 router.route('/authenticate').post(auth.authentication);
 
 /**
- * Registration route when slave mode active on retaliation client api.
+ * Registration route when slave mode active on rainstorm client api.
  */
 router.use('/register', registerRoutes);
 

@@ -73,11 +73,11 @@ var ThunderDriver = class extends RainstormDriver {
   reset() {
     throw 'Empty';
   }
-};
 
-// Static constants
-ThunderDriver.VID = 0x2123;
-ThunderDriver.PID = 0x1010;
+  static isSupported(device) {
+    return device.deviceDescriptor.idVendor === 0x2123 && device.deviceDescriptor.idProduct === 0x1010;
+  }
+};
 
 //--------------------------------------------------
 // Private code
