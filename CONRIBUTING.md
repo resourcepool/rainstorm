@@ -6,8 +6,8 @@
 
 ## Git branch naming
 
-* Use lowercase separated by underscore
-* Use your initials at the begining of your personal branch : `rs_my_branch`
+* Use lowercase separated by dashes
+* Use your initials at the begining of your personal branch : `rs-my-branch`
 
 ## Git commit message
 
