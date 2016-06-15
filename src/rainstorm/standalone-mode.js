@@ -17,7 +17,7 @@ function run() {
     app.set('config', config());
     app.use(bodyParser.json());
     app.use(cors());
-    app.use('/api/retaliation/', routes);
+    app.use('/api/rainstorm/', routes);
 
     app.use((err, req, res, next) => {
         if (err instanceof expressValidation.ValidationError) {
@@ -45,7 +45,7 @@ function run() {
     );
 
     app.listen(app.get('config').port, function () {
-        console.info("Retaliation server is running on port: " + app.get('config').port);
+        console.info("Rainstorm server is running on port: " + app.get('config').port);
     });
 
 }

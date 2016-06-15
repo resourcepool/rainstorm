@@ -7,7 +7,7 @@ export default class LauncherDispatcher {
     updateLauncher(launcher, name, cb) {
         json = {
             name: launcher.name,
-            retaliationId: launcher.retaliationId,
+            rainstormId: launcher.rainstormId,
             positions: {
                 x: launcher.position.x,
                 y: launcher.position.y,
@@ -16,7 +16,7 @@ export default class LauncherDispatcher {
         };
 
         request({
-            url: launcher.retaliationId + ':3001/' + url + '/' + name,
+            url: launcher.rainstormId + ':3001/' + url + '/' + name,
             method: 'PUT',
             json: true,
             body: json,

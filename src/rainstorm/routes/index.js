@@ -22,8 +22,8 @@ router.use('/users', userRoutes);
 router.use('/launchers', launcherRoutes);
 
 /**
- * Retaliations route
+ * Rainstorms route
  */
-// router.use('/retaliations', retaliationRoutes);
+// router.use('/rainstorms', rainstormRoutes);
 
 export default router;

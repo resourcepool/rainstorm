@@ -2,7 +2,7 @@
 
 module.exports = {
 
-  // TODO : Implement retaliation registration
+  // TODO : Implement rainstorm registration
   postRegister() {
     throw 'Empty';
   }

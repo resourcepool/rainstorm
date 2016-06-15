@@ -14,7 +14,7 @@ module.exports = (dao) => {
     },
 
     updateLauncher: (req, res) => {
-      let launcher = new Launcher(req.body.name, req.body.retaliationId, req.body.positions);
+      let launcher = new Launcher(req.body.name, req.body.rainstormId, req.body.positions);
       dao.updateLauncher(launcher, req.params.name, function(err) {
         if (err) {
           throw err;

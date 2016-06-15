@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Retaliation API.",
+  "description": "Rainstorm API.",
   "main": "server.js",
   "scripts": {
     "start": "babel-node server",

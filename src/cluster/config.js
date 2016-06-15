@@ -1,6 +1,6 @@
 var development = {
     apiKeyClient: 'apikeyclient',
-    apiKeyRetaliation: 'apikeyretaliation',
+    apiKeyRainstorm: 'apikeyrainstorm',
     apiKeyPrivate: 'apikeyprivate',
     port: 3000
 };

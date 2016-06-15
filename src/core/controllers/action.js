@@ -15,7 +15,7 @@ exports.shootPos = function (req, res) {
     };
     // get the name of the developer as parameter.
     // fetch the developer to get his position.
-    // fetch the retaliation to send to the right one.
+    // fetch the rainstorm to send to the right one.
 
     request({
         url    : driverApi,
