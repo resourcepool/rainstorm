@@ -1,0 +1,48 @@
+{
+  "launchers": [
+    {
+      "name": "Clyde"
+    },
+    {
+      "name": "Niko"
+    },
+    {
+      "name": "Joaquin"
+    },
+    {
+      "name": "Oscar"
+    },
+    {
+      "name": "Augustus"
+    },
+    {
+      "name": "Elenor"
+    },
+    {
+      "_name": "Sigrid",
+      "_usb": {
+        "busNumber": 4,
+        "deviceAddress": 9,
+        "deviceDescriptor": {
+          "bLength": 18,
+          "bDescriptorType": 1,
+          "bcdUSB": 272,
+          "bDeviceClass": 0,
+          "bDeviceSubClass": 0,
+          "bDeviceProtocol": 0,
+          "bMaxPacketSize0": 8,
+          "idVendor": 8483,
+          "idProduct": 4112,
+          "bcdDevice": 1,
+          "iManufacturer": 1,
+          "iProduct": 2,
+          "iSerialNumber": 0,
+          "bNumConfigurations": 1
+        },
+        "portNumbers": [
+          2
+        ]
+      }
+    }
+  ]
+}

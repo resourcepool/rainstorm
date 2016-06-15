@@ -24,8 +24,3 @@ gulp.task('babel', ['scripts', 'clean'], function () {
     .on('error', $.util.log)
     .pipe(gulp.dest('dist'));
 });
-
-gulp.task('copy-db', ['babel'], function () {
-  return gulp.src('src/**/*.json')
-    .pipe(gulp.dest('dist'));
-});
