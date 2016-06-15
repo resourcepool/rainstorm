@@ -19,6 +19,8 @@
   "homepage": "https://github.com/excilys/rainstorm#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "co": "^4.6.0",
+    "co-sleep": "0.0.1",
     "cors": "^2.7.1",
     "express": "^4.13.4",
     "express-validation": "^0.6.0",
@@ -32,7 +34,8 @@
     "lowdb": "^0.13.1",
     "path-exists": "^3.0.0",
     "request": "^2.72.0",
-    "require-dir": "^0.3.0"
+    "require-dir": "^0.3.0",
+    "usb": "^1.1.2"
   },
   "devDependencies": {
     "babel-cli": "6.9.0",
