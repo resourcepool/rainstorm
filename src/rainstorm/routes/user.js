@@ -1,3 +1,4 @@
+'use strict';
 import express from 'express';
 import validate from 'express-validation';
 import paramValidation from '../../core/helpers/param-validation';
@@ -10,12 +11,12 @@ const userController = require('../../core/controllers/user')(userDAO);
 const router = express.Router();
 
 router.route('/')
-    .get(auth.isValidToken, userController.getUsers)
-    .post(auth.isValidToken, validate(paramValidation.user), userController.postUser);
+    .get(auth.isValidRetaliationApiKey, userController.getUsers)
+    .post(auth.isValidRetaliationApiKey, validate(paramValidation.user), userController.postUser);
 
 router.route('/:name')
-    .get(auth.isValidToken, userController.getUser)
-    .put(auth.isValidToken, validate(paramValidation.user), userController.updateUser)
-    .delete(auth.isValidToken, userController.removeUser);
+    .get(auth.isValidRetaliationApiKey, userController.getUser)
+    .put(auth.isValidRetaliationApiKey, validate(paramValidation.user), userController.updateUser)
+    .delete(auth.isValidRetaliationApiKey, userController.removeUser);
 
 export default router;

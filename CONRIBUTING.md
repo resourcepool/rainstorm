@@ -4,6 +4,11 @@
 
 # Styleguide
 
+## Git branch naming
+
+* Use lowercase separated by dashes
+* Use your initials at the begining of your personal branch : `rs-my-branch`
+
 ## Git commit message
 
 * Embrace with brackets the uppercased verb that qualifies the commit `[ ADD ] : `
@@ -18,3 +23,9 @@
 * Use the [Airbnb](https://github.com/airbnb/javascript) styleguide.
 * The jshintrc should follow it. Altough, please do not hesitate to PR if we forgot some rule.
 * [Here](https://www.themarketingtechnologist.co/how-to-get-airbnbs-javascript-code-style-working-in-webstorm/) is guide that should help setup your environnment.
+
+### File name styleguide
+* file name should match exported function
+* file name should be PascalCase if a class is exported
+* file name sould be camelCase otherwise
+

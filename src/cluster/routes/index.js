@@ -2,7 +2,9 @@ import express from 'express';
 import userRoutes from './user';
 import launcherRoutes from './launcher';
 import registerRoutes from './register';
-import auth from '../../core/controllers/auth';
+import config from '../config';
+
+const auth = require('../../core/controllers/auth')(config);
 const router = express.Router();
 
 /**

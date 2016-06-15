@@ -1,16 +1,7 @@
-const fs = require('fs');
 import fileAsync from 'lowdb/lib/file-async';
 import low from 'lowdb';
 let userDir = './db/users.json';
 let collection = 'users';
-
-/**
- * Create the db if it doesn't exist
- */
-if(!low.has(userDir).value()){
-  // I'm doing this ugly sync because it is executed only once
-  fs.writeFileSync(userDir, '');
-}
 
 let db = low(userDir, {storage: fileAsync});
 

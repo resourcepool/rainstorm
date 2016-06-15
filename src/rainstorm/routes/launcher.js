@@ -12,7 +12,6 @@ router.route('/')
 
 router.route('/:id')
     .get(launcherController.getLauncher)
-    .put(validate(paramValidation.launcher), launcherController.updateLauncher)
-    .delete(launcherController.removeLauncher);
+    .put(validate(paramValidation.launcher), launcherController.updateLauncher);
 
 export default router;
