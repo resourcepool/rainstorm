@@ -1,11 +1,10 @@
 'use strict';
+// Classes
+const RainstormDriver = require('../RainstormDriver');
+// Imports
 const usb = require('usb');
 const co = require('co');
 const sleep = require('co-sleep');
-const RetaliationDriver = require('../RetaliationDriver').driver;
-
-const VID = 0x2123;
-const PID = 0x1010;
 
 const DOWN = 0x01;
 const UP = 0x02;
@@ -14,7 +13,7 @@ const RIGHT = 0x08;
 const FIRE = 0x10;
 const STOP = 0x20;
 
-var ThunderDriver = class extends RetaliationDriver {
+var ThunderDriver = class extends RainstormDriver {
 
   constructor(device) {
     if (!device) {
@@ -36,31 +35,13 @@ var ThunderDriver = class extends RetaliationDriver {
     i.claim();
   }
 
-  shoot(x, y) {
-    console.log('Shoot [' + x + ', ' + y + ']');
+  shoot() {
+    console.log('Shoot');
     this.setup();
-    var actions=[];
-    if (!isPositionAccessible(x, y)) {
-      console.err('Unreachable !');
-    } else {
-      actions = [{
-          direction: getVertDirectionCode(x, y),
-          duration: getVertMoveDuration(x, y)
-        }, {
-          direction: UP,
-          duration: getHorizMoveDuration(x, y)
-        }, {
-        direction: FIRE,
-        duration: 100
-        }, {
-          direction: getReverseVertDirectionCode(x, y),
-          duration: getVertMoveDuration(x, y)
-        }, {
-          direction: DOWN,
-          duration: getHorizMoveDuration(x, y)
-      }];
-    }
-
+    var actions = [{
+      direction: FIRE,
+      duration: 100
+    }];
     return executeActions(this._device, actions);
   }
 
@@ -95,6 +76,14 @@ var ThunderDriver = class extends RetaliationDriver {
   }
 };
 
+// Static constants
+ThunderDriver.VID = 0x2123;
+ThunderDriver.PID = 0x1010;
+
+//--------------------------------------------------
+// Private code
+//--------------------------------------------------
+
 function executeActions(device, actions) {
   return co(function *() {
     for (let action of actions) {
@@ -114,7 +103,7 @@ function sendMove(device, cmd, duration) {
 function sendCommand(device, cmd) {
   return new Promise((resolve, reject) => {
     device.controlTransfer(0x21, 0x09, 0, 0,
-      Buffer.from([0x02, parseInt(cmd +'', 16), 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]),
+      Buffer.from([0x02, parseInt(cmd + '', 16), 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]),
       (err) => {
         if (err) reject(err);
         resolve();
@@ -178,6 +167,5 @@ function getVertMoveDuration(posX, posY) {
   return (5640 * angle) / ((3 * Math.PI) / 2);
 }
 
-module.exports = {
-  ThunderDriver, PID, VID
-};
+// Exports
+module.exports = ThunderDriver;
