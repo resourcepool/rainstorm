@@ -72,7 +72,7 @@ function getSuitableDriver(device) {
   // For each device descriptor, try to find a relevant Driver
   for (let i in drivers) {
     let Driver = drivers[i];
-    if (Driver.isCompatible(device)) {
+    if (Driver.isSupported(device)) {
       // If suitable driver found, keep the device descriptor
       return new Driver(device);
     }

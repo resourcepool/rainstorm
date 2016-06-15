@@ -8,4 +8,4 @@ module.exports = {
     scheme: 'http',
     port: 3000
   }
-}
+};

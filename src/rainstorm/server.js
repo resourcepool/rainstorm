@@ -10,9 +10,10 @@ if (config.mode !== 'standalone') {
   request({
     url: config.master.scheme + '://' + config.master.host + ':' + config.master.port + '/health-check',
     method: "GET"
-  }, function (error, res) {
+  }, function(error, res) {
     if (res && res.body.message !== 'OK') {
       console.info('--> SLAVE MODE ACTIVE: Master found');
+      // FIXME add default.run() or better impl
       require(slaveMode);
     } else {
       console.error('--> SLAVE MODE FAILED: Master not reachable');
@@ -21,7 +22,7 @@ if (config.mode !== 'standalone') {
   });
 } else {
   console.info('--> STANDALONE MODE ACTIVE');
-  require(standaloneMode);
+  console.log(require(standaloneMode).default.run());
 }
 
 
