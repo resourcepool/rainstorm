@@ -1,10 +1,10 @@
 export default class Launcher {
 
-    constructor(name, retaliationId, positions, usb) {
+    constructor(name, retaliationId, positions, deviceDescriptor) {
         this._name = name;
         this._retaliationId = retaliationId;
         this._positions = positions;
-        this._usb = usb;
+        this._deviceDescriptor = deviceDescriptor;
     }
 
     get name() {
@@ -31,12 +31,12 @@ export default class Launcher {
         this._positions = positions;
     }
 
-    get usb() {
-        return this._usb;
+    get deviceDescriptor() {
+        return this._deviceDescriptor;
     }
 
-    set usb(usb){
-        this._usb = usb;
+    set deviceDescriptor(deviceDescriptor){
+        this._deviceDescriptor = deviceDescriptor;
     }
 
 }
