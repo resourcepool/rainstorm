@@ -1,4 +1,3 @@
-'use strict';
 // Classes
 const RainstormDriver = require('../RainstormDriver');
 // Imports

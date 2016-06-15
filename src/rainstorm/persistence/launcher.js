@@ -1,4 +1,3 @@
-'use strict';
 import Launcher from '../../core/models/launcher';
 import fileAsync from 'lowdb/lib/file-async';
 import low from 'lowdb';

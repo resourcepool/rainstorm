@@ -1,4 +1,3 @@
-'use strict';
 import jwt from 'jsonwebtoken';
 
 module.exports = config => {

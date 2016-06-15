@@ -1,4 +1,3 @@
-'use strict'; 
 import fileAsync from 'lowdb/lib/file-async';
 import low from 'lowdb';
 let userDir = './db/users.json';

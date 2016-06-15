@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
 
   // TODO : Implement retaliation registration
