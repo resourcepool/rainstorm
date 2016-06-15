@@ -4,6 +4,11 @@
 
 # Styleguide
 
+## Git branch naming
+
+* Use lowercase separated by underscore
+* Use your initials at the begining of your personal branch : `rs_my_branch`
+
 ## Git commit message
 
 * Embrace with brackets the uppercased verb that qualifies the commit `[ ADD ] : `
