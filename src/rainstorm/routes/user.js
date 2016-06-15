@@ -9,13 +9,15 @@ const userController = require('../../core/controllers/user')(userDAO);
 
 const router = express.Router();
 
+router.use(auth.isValidRainstormApiKey);
+
 router.route('/')
-    .get(auth.isValidRainstormApiKey, userController.getUsers)
-    .post(auth.isValidRainstormApiKey, validate(paramValidation.user), userController.postUser);
+    .get(userController.getUsers)
+    .post(validate(paramValidation.user), userController.postUser);
 
 router.route('/:name')
-    .get(auth.isValidRainstormApiKey, userController.getUser)
-    .put(auth.isValidRainstormApiKey, validate(paramValidation.user), userController.updateUser)
-    .delete(auth.isValidRainstormApiKey, userController.removeUser);
+    .get(userController.getUser)
+    .put(validate(paramValidation.user), userController.updateUser)
+    .delete(userController.removeUser);
 
 export default router;

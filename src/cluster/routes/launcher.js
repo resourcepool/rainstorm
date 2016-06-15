@@ -9,11 +9,13 @@ const launcherController = require('../../core/controllers/launcher')(launcherDA
 
 const router = express.Router();
 
+router.use(auth.isValidToken);
+
 router.route('/')
-    .get(auth.isValidToken, launcherController.getLaunchers);
+    .get(launcherController.getLaunchers);
 
 router.route('/:id')
-    .get(auth.isValidToken, launcherController.getLauncher)
-    .put(auth.isValidToken, validate(paramValidation.launcher), launcherController.updateLauncher);
+    .get(launcherController.getLauncher)
+    .put(validate(paramValidation.launcher), launcherController.updateLauncher);
 
 export default router;

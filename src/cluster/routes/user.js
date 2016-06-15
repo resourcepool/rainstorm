@@ -9,13 +9,15 @@ const userController = require('../../core/controllers/user')(userDAO);
 
 const router = express.Router();
 
+router.use(auth.isValidToken);
+
 router.route('/')
-    .get(auth.isValidToken, userController.getUsers)
-    .post(auth.isValidToken, validate(paramValidation.user), userController.postUser);
+    .get(userController.getUsers)
+    .post(validate(paramValidation.user), userController.postUser);
 
 router.route('/:name')
-    .get(auth.isValidToken, userController.getUser)
-    .put(auth.isValidToken, validate(paramValidation.user), userController.updateUser)
-    .delete(auth.isValidToken, userController.removeUser);
+    .get(userController.getUser)
+    .put(validate(paramValidation.user), userController.updateUser)
+    .delete(userController.removeUser);
 
 export default router;
