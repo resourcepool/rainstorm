@@ -1,7 +1,7 @@
 module.exports = {
-
-  // TODO : Implement rainstorm registration
-  postRegister() {
-    throw 'Empty';
-  }
+  postRegister
 };
+// TODO : Implement rainstorm registration
+function postRegister() {
+  throw 'Empty';
+}
