@@ -8,8 +8,12 @@ import config from './conf/config';
 import routes from './routes';
 import APIError from '../core/helpers/api-error';
 import driverManager from '../driver/driverManager';
+import launcherDao from './persistence/launcher';
+import LauncherListener from '../driver/LauncherListener';
 
 function run() {
+
+  initListeners();
 
   console.info('current devices', driverManager.getLaunchers());
 
@@ -48,6 +52,13 @@ function run() {
     console.info("Rainstorm server is running on port: " + app.get('config').port);
   });
 
+}
+
+/**
+ * Init listeners in driverManager
+ */
+function initListeners() {
+  driverManager.addLauncherListener(new LauncherListener(launcherDao));
 }
 
 export default {run};

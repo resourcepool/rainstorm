@@ -3,16 +3,18 @@
  * @type {{new(): {onDeviceDisconnected: (function(*)), onDeviceConnected: (function(*))}}}
  */
 const LauncherListener = class {
-  constructor() {
 
+  constructor(launcherDao) {
+    this.launcherDao = launcherDao;
   }
 
   onDeviceConnected(device) {
-    throw 'NotImplemented';
+    this.launcherDao.postLauncher(device);
   }
 
   onDeviceDisconnected(device) {
-    throw 'NotImplemented';
+    // FIXME didnt work
+    this.launcherDao.removeLauncher(device);
   }
 };
 
