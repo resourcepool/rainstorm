@@ -108,24 +108,24 @@ function refresh() {
 usb.on('attach', (device) => {
   // If attached device is a supported launcher
   let newLauncher = getActiveLaunchers([device]);
-  if (newLauncher.length > 0) {
+  if (Object.keys(newLauncher).length > 0) {
     // Refresh
     refresh();
     // Notify listeners
     for (var i in listeners) {
-      listeners[i].onDeviceConnected(newLauncher);
+      listeners[i].onDeviceConnected(device);
     }
   }
 });
 
 usb.on('detach', (device) => {
   // If detached device is a supported launcher
-  if (launchers.keys().includes(getKey(device))) {
+  if (Object.keys(launchers).includes(getKey(device))) {
     // Refresh
     refresh();
     // Notify listeners
     for (var i in listeners) {
-      listeners[i].onDeviceDisconnected(newLauncher);
+      listeners[i].onDeviceDisconnected(device);
     }
   }
 });
