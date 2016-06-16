@@ -13,6 +13,7 @@ require('require-dir')('./gulp');
  * Watches for changes and serves rainstorm API
  */
 gulp.task('rainstorm', function() {
+  gulp.start('serve-rainstorm');
   gulp.start('watch-rainstorm');
 });
 
@@ -20,6 +21,7 @@ gulp.task('rainstorm', function() {
  * Watches for changes and serves cluster API
  */
 gulp.task('cluster', function() {
+  gulp.start('serve-cluster');
   gulp.start('watch-cluster');
 });
 
@@ -27,5 +29,6 @@ gulp.task('cluster', function() {
  * Watches for changes and serves rainstorm & cluster API
  */
 gulp.task('default', function() {
+  gulp.start('serve');
   gulp.start('watch');
 });
