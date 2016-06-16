@@ -8,12 +8,13 @@ module.exports = (dao) => {
     },
 
     getLauncher: (req, res) => {
-      res.json(dao.getLauncher(req.params.name));
+      // FIXME getLauncher not implemented in rainstorm/persistence/launcher.js
+      res.json(dao.getLauncher(req.params.id));
     },
 
     updateLauncher: (req, res) => {
       let launcher = new Launcher(req.body.name, req.body.rainstormId, req.body.positions);
-      dao.updateLauncher(launcher, req.params.name, function(err) {
+      dao.updateLauncher(launcher, req.params.id, function(err) {
         if (err) {
           throw err;
         }
