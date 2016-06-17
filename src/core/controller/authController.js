@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-module.exports = config => {
+module.exports = (config) => {
 
   function authentication(req, res) {
     if (req.headers['api-key'] === config.apiKeyClient) {
@@ -12,7 +12,6 @@ module.exports = config => {
 
   }
 
-
   function isValidToken(req, res, next) {
     // check header or url parameters or post parameters for token
     let token = req.body.token || req.query.token || req.headers['x-access-token'];
@@ -21,7 +20,7 @@ module.exports = config => {
     if (token) {
 
       // verifies secret and checks exp
-      jwt.verify(token, config.apiKeyPrivate, function(err, decoded) {
+      jwt.verify(token, config.apiKeyPrivate, function (err, decoded) {
         if (err) {
           return res.status(403).json({success: false, message: 'Failed to authenticate token.'});
         } else {
@@ -41,7 +40,6 @@ module.exports = config => {
 
     }
   }
-
 
   function isValidRainstormApiKey(req, res, next) {
     if (req.headers['api-key'] === config.apiKeyRainstorm) {

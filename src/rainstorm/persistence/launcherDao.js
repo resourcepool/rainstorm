@@ -1,4 +1,4 @@
-import Launcher from '../../core/models/launcher';
+import Launcher from '../../core/model/Launcher';
 import fileAsync from 'lowdb/lib/file-async';
 import low from 'lowdb';
 import faker from 'faker';

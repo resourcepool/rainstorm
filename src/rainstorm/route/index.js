@@ -1,6 +1,6 @@
 import express from 'express';
-import launcherRoutes from './launcher';
-import userRoutes from './user';
+import launcherRoutes from './launcherRouter';
+import userRoutes from './userRouter';
 const router = express.Router();
 
 /**
@@ -19,10 +19,5 @@ router.use('/users', userRoutes);
  * Launchers route
  */
 router.use('/launchers', launcherRoutes);
-
-/**
- * Rainstorms route
- */
-// router.use('/rainstorms', rainstormRoutes);
 
 export default router;
