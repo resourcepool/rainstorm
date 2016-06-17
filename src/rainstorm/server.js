@@ -1,5 +1,5 @@
-import request from "request";
-import config from "./conf/config";
+import request from 'request';
+import config from './conf/config';
 const standaloneMode = require.resolve('./standalone-mode');
 const slaveMode = require.resolve('./slave-mode');
 
@@ -9,7 +9,7 @@ const slaveMode = require.resolve('./slave-mode');
 if (config.mode !== 'standalone') {
   request({
     url: config.master.scheme + '://' + config.master.host + ':' + config.master.port + '/health-check',
-    method: "GET"
+    method: 'GET'
   }, function(error, res) {
     if (res && res.body.message !== 'OK') {
       console.info('--> SLAVE MODE ACTIVE: Master found');

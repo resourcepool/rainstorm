@@ -1,7 +1,7 @@
 # Rainstorm ![logo][logo]
 [logo]: ./rainstorm-logo.png "logo title"
 
-Check [Wiki](https://github.com/excilys/rainstorm/wiki) and [Glossary](https://github.com/excilys/rainstorm/wiki/Glossary) for more info
+Check [Wiki](https://github.com/resourcepool/rainstorm/wiki) and [Glossary](https://github.com/resourcepool/rainstorm/wiki/Glossary) for more info
 
 ## General Requirements
 
